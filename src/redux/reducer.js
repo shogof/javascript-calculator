@@ -2,6 +2,8 @@ import {
   ADD_DIGIT, ADD_OPERATOR, CLEAR, CALCULATE,
 } from './actions';
 
+import { evaluate } from 'mathjs';
+
 const initialState = {
   display: '0',
   input: '',
@@ -83,11 +85,12 @@ const reducer = (state = initialState, action) => {
         currentOperation: '',
       };
     }
+
     case CALCULATE: {
       try {
         let formattedInput = state.input.trim();
         formattedInput = formatInput(formattedInput);
-        const result = eval(formattedInput);
+        const result = evaluate(formattedInput);
         const roundedResult = Math.round(result * 10000) / 10000;
 
         return {
