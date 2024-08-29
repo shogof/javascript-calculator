@@ -1,8 +1,8 @@
+import { evaluate } from 'mathjs';
+
 import {
   ADD_DIGIT, ADD_OPERATOR, CLEAR, CALCULATE,
 } from './actions';
-
-import { evaluate } from 'mathjs';
 
 const initialState = {
   display: '0',
@@ -14,7 +14,7 @@ const initialState = {
 
 const formatInput = (input) => input
   .replace(/ {2,}/g, ' ')
-  .replace(/ {1}([+\-*/]) {1}/g,' $1 ')
+  .replace(/ {1}([+\-*/]) {1}/g, ' $1 ')
   .replace(/--/g, '+')
   .replace(/(\d+)\s*([+\-*/])\s*$/g, '$1$2')
   .replace(/(\d+)\s*$/, '$1');
