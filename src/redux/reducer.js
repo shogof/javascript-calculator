@@ -11,28 +11,30 @@ const initialState = {
 };
 
 const formatInput = (input) => input
-    .replace(/ {2,}/g, ' ')
-    .replace(/ {1}([+\-*\/]) {1}/g, ' $1 ')
-    .replace(/--/g, '+')
-    .replace(/(\d+)\s*([+\-*\/])\s*$/, '$1$2')
-    .replace(/(\d+)\s*$/, '$1');
+  .replace(/ {2,}/g, ' ')
+  .replace(/ {1}([+\-*\/]) {1}/g, ' $1 ')
+  .replace(/--/g, '+')
+  .replace(/(\d+)\s*([+\-*\/])\s*$/, '$1$2')
+  .replace(/(\d+)\s*$/, '$1');
 
 const processOperators = (input, operator) => {
   const operators = ['+', '-', '*', '/'];
 
-  if (operators.includes(input.slice(-1)) && input.slice(-1) !== '-') {
-    input = input.slice(0, -1);
+  let modifiedInput = input;
+
+  if (operators.includes(modifiedInput.slice(-1)) && modifiedInput.slice(-1) !== '-') {
+    modifiedInput = modifiedInput.slice(0, -1);
   }
 
-  if (input === '' && operator === '-') {
-    return input + operator;
+  if (modifiedInput === '' && operator === '-') {
+    return modifiedInput + operator;
   }
 
-  if (operators.includes(input.slice(-1))) {
-    input = input.slice(0, -1);
+  if (operators.includes(modifiedInput.slice(-1))) {
+    modifiedInput = modifiedInput.slice(0, -1);
   }
 
-  return input + (input === '' ? '' : ' ') + operator;
+  return modifiedInput + (modifiedInput === '' ? '' : ' ') + operator;
 };
 
 const reducer = (state = initialState, action) => {
