@@ -10,14 +10,13 @@ const initialState = {
   currentOperation: '',
 };
 
-const formatInput = (input) => {
-  return input
+const formatInput = input =>
+  input
     .replace(/ {2,}/g, ' ')
-    .replace(/ {1}([*/+-]) {1}/g, ' $1 ')
+    .replace(/ {1}([+\-*\/]) {1}/g, ' $1 ')
     .replace(/--/g, '+')
     .replace(/(\d+)\s*([+\-*\/])\s*$/, '$1$2')
     .replace(/(\d+)\s*$/, '$1');
-};
 
 const processOperators = (input, operator) => {
   const operators = ['+', '-', '*', '/'];
