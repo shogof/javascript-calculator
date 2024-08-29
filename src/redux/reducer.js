@@ -12,9 +12,9 @@ const initialState = {
 
 const formatInput = (input) => input
   .replace(/ {2,}/g, ' ')
-  .replace(/ {1}([+\-*\/]) {1}/g, ' $1 ')
+  .replace(/ {1}([+\-*\/]) {1}/g,' $1 ')
   .replace(/--/g, '+')
-  .replace(/(\d+)\s*([+\-*\/])\s*$/, '$1$2')
+  .replace(/(\d+)\s*([+\-*\/])\s*$/g, '$1$2')
   .replace(/(\d+)\s*$/, '$1');
 
 const processOperators = (input, operator) => {
