@@ -1,21 +1,21 @@
-# Markdown Previewer 📝✨
+# Calculator 📝✨
 
 ## Project Description 🧠
 
-### 🎨 **Markdown Previewer**
+### 🎨 **🚀 PR: Calculator Component with Redux & Styling**
+This PR introduces a functional calculator component integrated with Redux for state management and features a modern, responsive design. Updates include dynamic button handling, interactive styling, and Redux setup for managing inputs and calculations. Please test arithmetic functionality and check design responsiveness. Feedback on functionality, design, and Redux integration is appreciated.
 
-This React-based application allows users to write and preview Markdown in real-time. It provides a split-screen interface where users can see their Markdown input on one side and the rendered HTML output on the other. The app is designed with a clean, responsive layout and smooth animations to ensure an engaging and user-friendly experience.
-
-## [Live Demo](https://markdown-previewer-6pio-6pikth3h0-shogofs-projects.vercel.app/) 🎥
+## [Live Demo](https://javascript-calculator-8apqqiay8-shogofs-projects.vercel.app/) 🎥
 
 ## Demo 📸
 
-![Markdown Previewer Screenshot](./public/Images/im.png)
+![JS Calculator Screenshot](./public/images/s.jpg)
 
 ## Technologies Used 🛠️
 
 - [React](https://reactjs.org/): JavaScript library for building user interfaces.
 - [ReactMarkdown](https://github.com/remarkjs/react-markdown): A Markdown component for React.
+- [Redux](https://redux.js.org/): State management library for JavaScript apps.
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS): Custom styles for the application.
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): Structure and content of the web application.
 
@@ -26,13 +26,13 @@ To set up the project locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone git@github.com:yourusername/markdown-previewer.git
+   git clone git@github.com:shogof/js-calculator.git
    ```
 
 2. **Navigate to project directory:**
 
    ```bash
-   cd markdown-previewer
+   cd js-calculator
    ```
 
 3. **Install dependencies:**
@@ -49,28 +49,6 @@ To set up the project locally, follow these steps:
 
    Open `http://localhost:3000` in your web browser to view the app.
 
-## Usage 🎯
-
-1. **Edit Markdown:**
-   Type Markdown content into the left-hand editor pane.
-
-2. **Preview Markdown:**
-   The right-hand pane will automatically render and display the Markdown content as HTML.
-
-## Code Overview 📂
-
-### `MarkdownPreviewer.js`
-
-- **State Management:**
-
-  - `editorValue`: Stores the current Markdown input from the user.
-
-- **handleEditorChange Function:**
-  Updates the `editorValue` state with the content from the textarea.
-
-- **Rendering:**
-  Displays a textarea for Markdown input and a div for the Markdown preview using `ReactMarkdown`.
-
 ## Author 👩‍💻
 
 - **LinkedIn:** [LinkedIn Profile](www.linkedin.com/in/shegofa-developer-aa362030b)
@@ -84,7 +62,7 @@ Contributions are welcome! If you'd like to contribute, please follow these step
 1. **Fork the repository** on GitHub.
 2. **Clone your fork** to your local machine:
    ```bash
-   git clone https://github.com/yourusername/markdown-previewer.git
+   git clone https://github.com/shogof/js-calculator.git
    ```
 3. **Create a new branch** for your changes:
    ```bash
