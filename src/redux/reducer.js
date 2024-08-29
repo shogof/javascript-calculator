@@ -1,6 +1,6 @@
 import {
-  ADD_DIGIT, ADD_OPERATOR, CLEAR, CALCULATE
-  } from './actions';
+  ADD_DIGIT, ADD_OPERATOR, CLEAR, CALCULATE,
+} from './actions';
 
 const initialState = {
   display: '0',
@@ -15,7 +15,7 @@ const formatInput = (input) => {
     .replace(/ {2,}/g, ' ')
     .replace(/ {1}([*/+-]) {1}/g, ' $1 ')
     .replace(/--/g, '+')
-    .replace(/(\d+)\s*([\+\-\*\/])\s*$/, '$1$2')
+    .replace(/(\d+)\s*([+\-*\/])\s*$/, '$1$2')
     .replace(/(\d+)\s*$/, '$1');
 };
 

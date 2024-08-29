@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  addDigit, addOperator, clear, calculate
-  } from './redux/actions';
+  addDigit, addOperator, clear, calculate,
+} from './redux/actions';
 
 const Calculator = () => {
   const dispatch = useDispatch();
@@ -40,14 +40,14 @@ const Calculator = () => {
   ];
 
   return (
-    <div id='calculator'>
-      <div id='display'>{display}</div>
-      <div id='buttons'>
+    <div id="calculator">
+      <div id="display">{display}</div>
+      <div id="buttons">
         {buttons.map((button) => (
           <button
             key={button.id}
             id={button.id}
-            type='button'
+            type="button"
             className={button.value === 'C' ? 'clear' : ''}
             onClick={() => handleButtonClick(button.value)}
           >
