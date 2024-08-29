@@ -10,7 +10,7 @@ const initialState = {
   currentOperation: '',
 };
 
-const formatInput = input =>
+const formatInput = (input) =>
   input
     .replace(/ {2,}/g, ' ')
     .replace(/ {1}([+\-*\/]) {1}/g, ' $1 ')
