@@ -1,30 +1,32 @@
-import { ADD_DIGIT, ADD_OPERATOR, CLEAR, CALCULATE } from "./actions";
+import {
+  ADD_DIGIT, ADD_OPERATOR, CLEAR, CALCULATE
+  } from './actions';
 
 const initialState = {
-  display: "0",
-  input: "",
+  display: '0',
+  input: '',
   decimalUsed: false,
-  trailingResult: "0",
-  currentOperation: "",
+  trailingResult: '0',
+  currentOperation: '',
 };
 
 const formatInput = (input) => {
   return input
-    .replace(/ {2,}/g, " ")
-    .replace(/ {1}([*/+-]) {1}/g, " $1 ")
-    .replace(/--/g, "+")
-    .replace(/(\d+)\s*([\+\-\*\/])\s*$/, "$1$2")
-    .replace(/(\d+)\s*$/, "$1");
+    .replace(/ {2,}/g, ' ')
+    .replace(/ {1}([*/+-]) {1}/g, ' $1 ')
+    .replace(/--/g, '+')
+    .replace(/(\d+)\s*([\+\-\*\/])\s*$/, '$1$2')
+    .replace(/(\d+)\s*$/, '$1');
 };
 
 const processOperators = (input, operator) => {
-  const operators = ["+", "-", "*", "/"];
+  const operators = ['+', '-', '*', '/'];
 
-  if (operators.includes(input.slice(-1)) && input.slice(-1) !== "-") {
+  if (operators.includes(input.slice(-1)) && input.slice(-1) !== '-') {
     input = input.slice(0, -1);
   }
 
-  if (input === "" && operator === "-") {
+  if (input === '' && operator === '-') {
     return input + operator;
   }
 
@@ -32,23 +34,23 @@ const processOperators = (input, operator) => {
     input = input.slice(0, -1);
   }
 
-  return input + (input === "" ? "" : " ") + operator;
+  return input + (input === '' ? '' : ' ') + operator;
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DIGIT: {
       const { payload } = action;
-      if (payload === "." && state.decimalUsed) {
+      if (payload === '.' && state.decimalUsed) {
         return state;
       }
 
-      if (state.input === "0" && payload !== ".") {
+      if (state.input === '0' && payload !== '.') {
         return {
           ...state,
           input: payload,
           display: payload,
-          decimalUsed: payload === ".",
+          decimalUsed: payload === '.',
         };
       }
 
@@ -57,7 +59,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         input: newInput,
         display: newInput,
-        decimalUsed: payload === "." || state.decimalUsed,
+        decimalUsed: payload === '.' || state.decimalUsed,
       };
     }
     case ADD_OPERATOR: {
@@ -74,11 +76,11 @@ const reducer = (state = initialState, action) => {
     case CLEAR: {
       return {
         ...state,
-        display: "0",
-        input: "",
+        display: '0',
+        input: '',
         decimalUsed: false,
-        trailingResult: "0",
-        currentOperation: "",
+        trailingResult: '0',
+        currentOperation: '',
       };
     }
     case CALCULATE: {
@@ -92,18 +94,18 @@ const reducer = (state = initialState, action) => {
           ...state,
           display: roundedResult.toString(),
           input: roundedResult.toString(),
-          decimalUsed: roundedResult.toString().includes("."),
+          decimalUsed: roundedResult.toString().includes('.'),
           trailingResult: roundedResult.toString(),
-          currentOperation: "",
+          currentOperation: '',
         };
       } catch (e) {
         return {
           ...state,
-          display: "Error",
-          input: "",
+          display: 'Error',
+          input: '',
           decimalUsed: false,
-          trailingResult: "0",
-          currentOperation: "",
+          trailingResult: '0',
+          currentOperation: '',
         };
       }
     }
